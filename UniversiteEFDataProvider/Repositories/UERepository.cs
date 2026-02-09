@@ -1,6 +1,6 @@
 namespace UniversiteEFDataProvider.Repositories;
 
-public class UERepository
+public class UeRepository
 {
     
 }
