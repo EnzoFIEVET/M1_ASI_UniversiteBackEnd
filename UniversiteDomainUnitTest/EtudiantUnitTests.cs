@@ -5,7 +5,7 @@ using UniversiteDomain.Entities;
 using UniversiteDomain.UseCases.EtudiantUseCases;
 using UniversiteDomain.UseCases.EtudiantUseCases.Create;
 
-namespace UniversiteDomainUnitTests;
+namespace UniversiteDomainUnitTest;
 
 public class EtudiantUnitTest
 {

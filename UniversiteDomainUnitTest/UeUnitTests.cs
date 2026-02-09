@@ -2,7 +2,6 @@
 using Moq;
 using UniversiteDomain.DataAdapters;
 using UniversiteDomain.Entities;
-using UniversiteDomain.UseCases.UeUseCases;
 using UniversiteDomain.UseCases.UeUseCases.Create;
 
 namespace UniversiteDomainUnitTest;

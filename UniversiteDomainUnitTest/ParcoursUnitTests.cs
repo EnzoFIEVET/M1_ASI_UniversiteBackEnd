@@ -20,12 +20,12 @@ public class ParcoursUnitTest
     {
         long idParcours = 1;
         String nomParcours = "Ue 1";
-        int anneFormation = 2;
+        int anneeFormation = 2;
         
         // On crée le parcours qui doit être ajouté en base
-        Parcours parcoursAvant = new Parcours{NomParcours = nomParcours, AnneeFormation = anneFormation};
+        Parcours parcoursAvant = new Parcours{NomParcours = nomParcours, AnneeFormation = anneeFormation};
         
-        // On initialise une fausse datasource qui va simuler un EtudiantRepository
+        // On initialise une fausse datasource qui va simuler un ParcoursRepository
         var mockParcours = new Mock<IParcoursRepository>();
         
         // Il faut ensuite aller dans le use case pour simuler les appels des fonctions vers la datasource
@@ -33,7 +33,7 @@ public class ParcoursUnitTest
         // On dit à ce mock que le parcours n'existe pas déjà
         mockParcours.Setup(repo=>repo.FindByConditionAsync(p=>p.Id.Equals(idParcours))).ReturnsAsync((List<Parcours>)null);
         // On lui dit que l'ajout d'un étudiant renvoie un étudiant avec l'Id 1
-        Parcours parcoursFinal =new Parcours{Id=idParcours,NomParcours= nomParcours, AnneeFormation = anneFormation};
+        Parcours parcoursFinal =new Parcours{Id=idParcours,NomParcours= nomParcours, AnneeFormation = anneeFormation};
         mockParcours.Setup(repo=>repo.CreateAsync(parcoursAvant)).ReturnsAsync(parcoursFinal);
         
         var mockFactory = new Mock<IRepositoryFactory>();

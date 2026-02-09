@@ -1,8 +1,6 @@
-using UniversiteDomain.DataAdapters;
 using UniversiteDomain.DataAdapters.DataAdaptersFactory;
 using UniversiteDomain.Entities;
 using UniversiteDomain.Exceptions.ParcoursExceptions;
-using UniversiteDomain.Util;
 
 namespace UniversiteDomain.UseCases.ParcoursUseCases.Create;
 
