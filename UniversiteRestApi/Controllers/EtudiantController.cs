@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UniversiteDomain.DataAdapters.DataAdaptersFactory;
+using UniversiteDomain.Dtos;
 using UniversiteDomain.Entities;
 using UniversiteDomain.UseCases.EtudiantUseCases.Create;
 
@@ -27,10 +28,15 @@ namespace UniversiteRestApi.Controllers
         // Crée un nouvel étudiant sans parcours
         // POST api/<EtudiantApi>
         [HttpPost]
-        public async Task<Etudiant> PostAsync([FromBody] Etudiant etudiant)
+        public async Task<EtudiantDto> PostAsync([FromBody] EtudiantDto etudiantDto)
         {
+            // Converstion d'un EtudiantDto sans Id en Etudiant
+            Etudiant etudiant = etudiantDto.ToEntity();
+            // Création d'un étudiant
             CreateEtudiantUseCase uc=new CreateEtudiantUseCase(repositoryFactory.EtudiantRepository());
-            return await uc.ExecuteAsync(etudiant);
+            etudiant = await uc.ExecuteAsync(etudiant);
+            // Conversion de l'étudiant avec son nouvel Id en EtudiantDto
+            return new EtudiantDto().ToDto(etudiant);
         }
 
         // PUT api/<EtudiantController>/5 UPDATE
