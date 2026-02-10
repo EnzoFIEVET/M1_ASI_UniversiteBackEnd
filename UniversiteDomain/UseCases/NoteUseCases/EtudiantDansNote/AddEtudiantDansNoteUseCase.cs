@@ -11,7 +11,7 @@ public class AddEtudiantDansNoteUseCase(IRepositoryFactory repositoryFactory)
       {
           ArgumentNullException.ThrowIfNull(note);
           ArgumentNullException.ThrowIfNull(etudiant);
-          return await ExecuteAsync(note.Id, etudiant.Id); 
+          return await ExecuteAsync(note.Id, etudiant.Id);
       }  
       public async Task<Note> ExecuteAsync(long idNote, long idEtudiant)
       {
