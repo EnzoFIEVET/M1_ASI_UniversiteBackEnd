@@ -30,7 +30,7 @@ namespace UniversiteRestApi.Controllers
         [HttpPost]
         public async Task<ActionResult<EtudiantDto>> PostAsync([FromBody] EtudiantDto etudiantDto)
         {
-            CreateEtudiantUseCase createEtudiantUc = new CreateEtudiantUseCase(repositoryFactory.EtudiantRepository());           
+            CreateEtudiantUseCase createEtudiantUc = new CreateEtudiantUseCase(repositoryFactory);           
             Etudiant etud = etudiantDto.ToEntity();
             try
             {
